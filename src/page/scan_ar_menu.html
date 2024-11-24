@@ -11,12 +11,14 @@
   <body style="margin: 0px; overflow: hidden">
     <a-scene embedded arjs>
       <!-- Load GLB model instead of a box -->
-      <a-entity
-        position="0 0.5 0"
-        scale="2 2 2"
-        gltf-model="url(../../assets/models/nasi_lemak.glb)"
-        material="opacity: 0.8;"
-        rotation="0 180 0">
+      <a-assets>
+        <a-asset-item
+          id="glbtestmodel"
+          src="https://cdn.glitch.com/90a30469-f038-4054-be9c-fd1ec94a810d%2Fkitchentest.glb">
+        </a-asset-item>
+      </a-assets>
+
+      <a-entity id="glbtest" gltf-model="#glbtestmodel" position="0 1 -2">
       </a-entity>
       <!-- define a camera which will move according to the marker position -->
       <a-marker-camera preset="hiro"></a-marker-camera>
