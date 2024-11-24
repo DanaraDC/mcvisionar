@@ -11,15 +11,13 @@
   <body style="margin: 0px; overflow: hidden">
     <a-scene embedded arjs>
       <!-- create your content here. just a box for now -->
-      <a-scene>
-        <a-assets>
-          <a-asset-item
-            id="nasi_lemak"
-            src="https://mcvisionar.vercel.app/assets/models/nasi_lemak.glb"></a-asset-item>
-        </a-assets>
+      <a-assets>
+        <a-asset-item
+          id="nasi_lemak"
+          src="https://mcvisionar.vercel.app/assets/models/nasi_lemak.glb"></a-asset-item>
+      </a-assets>
 
-        <a-entity gltf-model="#nasi_lemak"></a-entity>
-      </a-scene>
+      <a-entity gltf-model="#nasi_lemak"></a-entity>
       <!-- define a camera which will move according to the marker position -->
       <a-marker-camera preset="hiro"></a-marker-camera>
     </a-scene>
