@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+                  default-src 
+                    'self' 
+                    data: 
+                    gap: 
+                    https://ssl.gstatic.com 
+                    'unsafe-eval' 
+                    https://cdn.aframe.io         <-- required
+                    https://dpdb.webvr.rocks      <-- required
+                    https://fonts.googleapis.com  <-- required
+                    https://cdn.jsdelivr.net      <-- your choice, see below
+                    ; 
+                  style-src 
+                    'self' 
+                    'unsafe-inline'
+                    ; 
+                  media-src *; 
+                  img-src 
+                    'self' 
+                    data:                         <-- required
+                    content:                      <-- required
+                    blob:                         <-- required
+                    ;
+                " />
+    ...
+    <!-- <script src="https://cdn.jsdelivr.net/npm/aframe@1.6.0/dist/aframe-master.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script id="my-scene" type="text/html">
+      ...your scene goes here...
+    </script>
+    <script>
+      document.addEventListener("deviceready", function () {
+        // After the 'deviceready' event, Cordova is ready for you to render your A-Frame scene.
+        document.getElementById("scene-root").innerHTML =
+          document.getElementById("my-scene").innerHTML;
+      });
+    </script>
+  </head>
+  <body>
+    <div id="scene-root"></div>
+
+    <a-scene vr-mode-ui="enabled:false" stats arjs>
+      <!-- <a-assets>
+        <a-asset-item
+          id="kentangGoreng"
+          src="./../../assets/models/kentang_goreng/scene.gltf"></a-asset-item>
+      </a-assets>
+      <a-entity
+        gltf-model="#kentangGoreng"
+        modify-materials
+        position="0 0 -3.7"
+        scale="0.75 0.75 0.75"></a-entity>
+      <a-entity camera></a-entity> -->
+      <a-nft type="nft" url="../../assets/marker/1651409077p">
+        <a-box scale="100 100 100"></a-box>
+      </a-nft>
+    </a-scene>
+  </body>
+</html>
