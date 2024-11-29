@@ -41,12 +41,19 @@
         smoothTolerance=".01"
         smoothThreshold="5">
         <a-entity
-          gltf-model="./../../assets/models/nasi_lemak.glb"
+          gltf-model="https://rawcdn.githack.com/DanaraDC/mcvisionar/02778eb138881a77ace0fe411c99065855aa9b8d/assets/models/nasi_lemak.glb"
           scale="2 2 2"
           position="0 0 -50">
         </a-entity>
       </a-nft>
       <a-entity camera></a-entity>
     </a-scene>
+    <script>
+      document
+        .querySelector("[gltf-model]")
+        .addEventListener("model-loaded", () => {
+          console.log("Model berhasil dimuat!");
+        });
+    </script>
   </body>
 </html>
