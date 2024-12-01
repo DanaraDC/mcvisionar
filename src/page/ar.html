@@ -14,8 +14,11 @@
       <a-assets>
         <img id="card" src="../../assets/images/menu/menu.jpg" />
         <a-asset-item
-          id="avatarModel"
+          id="kentang_goreng_model"
           src="../../assets/models/kentang_goreng/scene.gltf"></a-asset-item>
+        <a-asset-item
+          id="burger_model"
+          src="../../assets/models/burger/big_mac.gltf"></a-asset-item>
       </a-assets>
       <a-entity mindar-image-target="targetIndex: 0">
         <!-- Plane sebagai latar belakang -->
@@ -29,7 +32,7 @@
 
         <!-- Model pertama -->
         <a-gltf-model
-          gltf-model="#avatarModel"
+          gltf-model="#kentang_goreng_model"
           rotation="0 0 0"
           position="0 0.2 0.1"
           scale="0.07 0.07 0.07"
@@ -38,7 +41,7 @@
 
         <!-- Model kedua di kiri model pertama -->
         <a-gltf-model
-          gltf-model="#avatarModel"
+          gltf-model="#burger_model"
           rotation="0 0 0"
           position="-0.3 0.2 0.1"
           scale="0.07 0.07 0.07"
