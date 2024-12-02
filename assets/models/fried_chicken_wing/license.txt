@@ -1,0 +1,11 @@
+Model Information:
+* title:	Fried chicken wing
+* source:	https://sketchfab.com/3d-models/fried-chicken-wing-0651fa619e324cfcab1d97816d13bcbd
+* author:	CzernO (https://sketchfab.com/czernobog)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Fried chicken wing" (https://sketchfab.com/3d-models/fried-chicken-wing-0651fa619e324cfcab1d97816d13bcbd) by CzernO (https://sketchfab.com/czernobog) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
