@@ -1,0 +1,11 @@
+Model Information:
+* title:	Chicken Nugget
+* source:	https://sketchfab.com/3d-models/chicken-nugget-511db88f24e04eb1be8b0c0c080e1e5e
+* author:	Laser Design (https://sketchfab.com/Laserdesign)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Chicken Nugget" (https://sketchfab.com/3d-models/chicken-nugget-511db88f24e04eb1be8b0c0c080e1e5e) by Laser Design (https://sketchfab.com/Laserdesign) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

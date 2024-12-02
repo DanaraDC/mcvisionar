@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>McVisionAR</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide-icons"></script>
+    <link rel="stylesheet" href="./../css/output.css" />
+    <link rel="stylesheet" href="./../css/modal.css" />
+
+    <style>
+      .webgl {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .bg-mcd-red {
+        background-color: #da291c;
+      }
+      .bg-mcd-yellow {
+        background-color: #ffc72c;
+      }
+      .text-mcd-red {
+        color: #da291c;
+      }
+      .hover\:bg-mcd-yellow:hover {
+        background-color: #ffc72c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="relative">
+      <!-- Navbar -->
+      <header
+        class="p-4 flex justify-between items-center bg-white text-black shadow-md">
+        <a href="/" class="flex items-center space-x-2">
+          <img
+            src="../../assets/images/logo/logo.png"
+            alt="McDonald's Logo"
+            class="h-10 w-auto" />
+        </a>
+        <div class="flex items-center justify-center gap-4">
+          <button
+            class="px-4 py-2 bg-slate-100 rounded-full hover:bg-slate-200 transition-colors duration-200 flex items-center space-x-1">
+            <img src="./../../assets/images/flag/usa.png" alt="" class="h-4" />
+            <span>EN/US</span>
+          </button>
+          <!-- Hamburger Menu -->
+          <button
+            class="p-2 rounded-md hover:bg-slate-100 transition-colors duration-200"
+            id="toggleDrawerButton"
+            aria-label="Toggle menu">
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Drawer Backdrop -->
+      <div
+        id="backdrop"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 hidden"></div>
+
+      <!-- Drawer -->
+      <div
+        id="drawer"
+        class="fixed top-0 right-0 h-full bg-white text-gray-800 w-80 shadow-2xl transform transition-transform duration-300 ease-in-out z-50 translate-x-full">
+        <div
+          class="flex justify-between items-center p-6 bg-red-600 text-white">
+          <img
+            src="../../assets/images/logo/logo.png"
+            alt="McDonald's Logo"
+            class="h-10 w-auto" />
+          <button
+            class="text-white hover:text-gray-200 transition-colors duration-200"
+            id="closeDrawerButton"
+            aria-label="Close menu">
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <nav class="mt-6 flex flex-col gap-2 px-6">
+          <a
+            href="landing.html"
+            class="py-3 px-4 text-lg hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >Home</a
+          >
+          <a
+            href="menu.html"
+            class="py-3 px-4 text-lg hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >Menu</a
+          >
+          <a
+            href="team.html"
+            class="py-3 px-4 text-lg hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >Our Team</a
+          >
+          <a
+            href="credit.html"
+            class="py-3 px-4 text-lg bg-yellow-200 hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >Credit</a
+          >
+        </nav>
+        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gray-100">
+          <p class="text-sm text-gray-600 text-center">
+            © <span id="year"></span> McDonald's. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Credit Section -->
+    <main class="container mx-auto px-4 py-12">
+      <h1 class="text-4xl font-bold text-center mb-12 text-mcd-red">Credits</h1>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <section class="mb-8 bg-beige p-6 rounded-lg">
+          <div
+            class="bg-yellow-400 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border-t-4 border-cherry-red">
+            <h3 class="text-xl font-bold mb-3 flex items-center">
+              <img
+                src="../../assets/svg/chicken/index.svg"
+                alt="Chicken"
+                class="w-6 h-6 mr-2" />
+              Fried Chicken Wing
+            </h3>
+            <p class="mb-2">
+              <strong>Source:</strong>
+              <a
+                href="https://sketchfab.com/3d-models/fried-chicken-wing-0651fa619e324cfcab1d97816d13bcbd"
+                class="text-blue-700 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Sketchfab</a
+              >
+            </p>
+            <p class="mb-2">
+              <strong>Author:</strong>
+              <a
+                href="https://sketchfab.com/czernobog"
+                class="text-blue-700 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                >CzernO</a
+              >
+            </p>
+            <p class="mb-3"><strong>License:</strong> CC-BY-4.0</p>
+            <p class="text-sm text-gray-700 bg-yellow-100 p-3 rounded">
+              This work is based on "Fried chicken wing" (<a
+                href="https://sketchfab.com/3d-models/fried-chicken-wing-0651fa619e324cfcab1d97816d13bcbd"
+                class="text-blue-700 hover:underline"
+                >link</a
+              >) by CzernO (<a
+                href="https://sketchfab.com/czernobog"
+                class="text-blue-700 hover:underline"
+                >author</a
+              >) licensed under
+              <a
+                href="http://creativecommons.org/licenses/by/4.0/"
+                class="text-blue-700 hover:underline"
+                >CC-BY-4.0</a
+              >.
+            </p>
+          </div>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4 text-mcd-red">Other Assets</h2>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+            <ul class="list-disc list-inside space-y-2">
+              <li>
+                Icons provided by
+                <a
+                  href="https://lucide.dev/"
+                  class="text-blue-600 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Lucide Icons</a
+                >
+              </li>
+              <li>
+                Styling powered by
+                <a
+                  href="https://tailwindcss.com/"
+                  class="text-blue-600 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Tailwind CSS</a
+                >
+              </li>
+              <li>
+                Fonts: <span class="font-semibold">Arial</span> (primary),
+                <span class="font-semibold">Helvetica</span> (secondary)
+              </li>
+              <li>
+                Color Palette:
+                <ul class="ml-6 mt-2 space-y-1">
+                  <li>
+                    <span class="inline-block w-4 h-4 bg-mcd-red mr-2"></span
+                    >McDonald's Red (#DA291C)
+                  </li>
+                  <li>
+                    <span class="inline-block w-4 h-4 bg-mcd-yellow mr-2"></span
+                    >McDonald's Yellow (#FFC72C)
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="../js/toggleNavbar.js"></script>
+    <script>
+      // Fungsi untuk menampilkan/menyembunyikan modal
+      function toggleModal() {
+        const modal = document.getElementById("menuModal");
+        modal.classList.toggle("hidden");
+      }
+    </script>
+    <script src="./../js/modalShow.js"></script>
+  </body>
+</html>
