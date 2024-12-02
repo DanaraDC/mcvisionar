@@ -3,8 +3,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <link rel="stylesheet" href="./../css/output.css" />
   </head>
   <body>
+    <div class="relative">
+      <!-- Navbar -->
+      <header
+        class="p-4 flex justify-between items-center bg-white text-black shadow-md">
+        <a href="/" class="flex items-center space-x-2">
+          <img
+            src="../../assets/images/logo/logo.png"
+            alt="McDonald's Logo"
+            class="h-10 w-auto" />
+        </a>
+        <div class="flex items-center gap-4">
+          <button
+            class="px-4 py-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors duration-200 flex items-center space-x-1">
+            <svg
+              class="w-4 h-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v8M8 12h8" />
+            </svg>
+            <span>EN</span>
+          </button>
+          <!-- Hamburger Menu -->
+          <button
+            class="p-2 rounded-md hover:bg-slate-100 transition-colors duration-200"
+            id="toggleDrawerButton"
+            aria-label="Toggle menu">
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Drawer Backdrop -->
+      <div
+        id="backdrop"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 hidden"></div>
+
+      <!-- Drawer -->
+      <div
+        id="drawer"
+        class="fixed top-0 right-0 h-full bg-white text-gray-800 w-80 shadow-2xl transform transition-transform duration-300 ease-in-out z-50 translate-x-full">
+        <div
+          class="flex justify-between items-center p-6 bg-red-600 text-white">
+          <img
+            src="../../assets/images/logo/logo.png"
+            alt="McDonald's Logo"
+            class="h-10 w-auto" />
+          <button
+            class="text-white hover:text-gray-200 transition-colors duration-200"
+            id="closeDrawerButton"
+            aria-label="Close menu">
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <nav class="mt-6 flex flex-col gap-2 px-6">
+          <a
+            href="view_model.html"
+            class="py-3 px-4 text-lg hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >Home</a
+          >
+          <a
+            href="ar.html"
+            class="py-3 px-4 text-lg hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >Menu</a
+          >
+          <a
+            href="#"
+            class="py-3 px-4 text-lg hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >About Us</a
+          >
+          <a
+            href="#"
+            class="py-3 px-4 text-lg hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >Contact</a
+          >
+          <a
+            href="#"
+            class="py-3 px-4 text-lg hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >Careers</a
+          >
+          <a
+            href="#"
+            class="py-3 px-4 text-lg hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >Nutrition</a
+          >
+        </nav>
+        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gray-100">
+          <p class="text-sm text-gray-600 text-center">
+            © <span id="year"></span> McDonald's. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <a-scene
       mindar-image="imageTargetSrc: ../../assets/marker/targets.mind"
       color-space="sRGB"
@@ -66,5 +186,7 @@
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
     </a-scene>
+
+    <script src="../js/toggleNavbar.js"></script>
   </body>
 </html>
