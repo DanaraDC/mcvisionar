@@ -6,6 +6,7 @@
     <title>McVisionAR</title>
     <script src="https://cdn.jsdelivr.net/npm/lucide-icons"></script>
     <link rel="stylesheet" href="./../css/output.css" />
+    <link rel="stylesheet" href="./../css/modal.css" />
 
     <style>
       .webgl {
@@ -154,10 +155,26 @@
         in stunning 3D!
       </p>
       <div class="flex justify-center gap-5">
-        <button
-          class="bg-yellow-400 text-red-700 font-bold py-3 px-8 rounded-full text-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105">
-          Order Now
-        </button>
+        <div class="relative">
+          <!-- Tombol -->
+          <button
+            id="myImg"
+            class="bg-yellow-400 text-red-700 font-bold py-3 px-8 rounded-full text-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105">
+            View Menu
+          </button>
+
+          <!-- Modal -->
+          <div id="myModal" class="modal">
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01" />
+
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+          </div>
+        </div>
         <a
           href="ar.html"
           class="bg-white hover:bg-slate-100 text-red-700 font-bold py-3 px-6 rounded-full flex items-center space-x-2 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
@@ -185,5 +202,13 @@
     </div>
 
     <script src="../js/toggleNavbar.js"></script>
+    <script>
+      // Fungsi untuk menampilkan/menyembunyikan modal
+      function toggleModal() {
+        const modal = document.getElementById("menuModal");
+        modal.classList.toggle("hidden");
+      }
+    </script>
+    <script src="./../js/modalShow.js"></script>
   </body>
 </html>
