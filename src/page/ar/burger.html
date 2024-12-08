@@ -1,51 +1,64 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-    <style>
-      .a-loader-title {
-        color: red;
-      }
-    </style>
   </head>
   <body>
-    <a-scene loading-screen="dotsColor: red; backgroundColor: black">
+    <a-scene>
       <a-assets>
         <a-asset-item
           id="burger"
           src="./../../../assets/models/burger/scene.gltf"></a-asset-item>
       </a-assets>
+      <a-assets>
+        <!-- Hidden video element to capture the camera feed -->
+        <video
+          id="videoFeed"
+          autoplay
+          playsinline
+          style="display: none"></video>
+      </a-assets>
 
-      <!-- Model 3D -->
-      <a-entity gltf-model="#burger" scale="0.01 0.01 0.01" position="0 1 -2">
+      <!-- Skybox to show the camera feed fullscreen -->
+      <a-sky id="video-sky" material="shader: flat; src: #videoFeed"></a-sky>
+
+      <!-- 3D model -->
+      <a-entity gltf-model="#burger" position="0 1.5 -3" scale="0.05 0.05 0.05">
       </a-entity>
 
-      <!-- Camera -->
-      <a-entity camera position="0 1.6 0" wasd-controls-enabled="false">
+      <!-- Camera Rig -->
+      <a-entity id="rig" position="0 1.6 0">
+        <a-camera id="camera" look-controls wasd-controls></a-camera>
       </a-entity>
 
-      <!-- Zoom Logic -->
       <script>
-        AFRAME.registerComponent("zoom-controls", {
-          init: function () {
-            const el = this.el;
-            const model = document.querySelector("[gltf-model]");
-            const camera = document.querySelector("[camera]");
-            let scale = 0.05;
+        // Access the device camera
+        const videoElement = document.querySelector("#videoFeed");
+        const videoSky = document.querySelector("#video-sky");
 
-            window.addEventListener("wheel", (e) => {
-              // Adjust scale based on scroll direction
-              if (e.deltaY < 0 && scale < 1) {
-                scale += 0.01; // Zoom in
-              } else if (e.deltaY > 0 && scale > 0.01) {
-                scale -= 0.01; // Zoom out
-              }
-              model.setAttribute("scale", `${scale} ${scale} ${scale}`);
-            });
-          },
-        });
+        // Ensure the video is playing before it's used in the skybox
+        function startVideo() {
+          // Check if the video element is playing and ready
+          if (videoElement.readyState >= 3) {
+            videoSky.setAttribute("material", "src", "#videoFeed");
+          } else {
+            console.log("Waiting for video feed to start...");
+            setTimeout(startVideo, 100); // Retry until video is ready
+          }
+        }
 
-        // Add zoom-controls to the scene
-        document.querySelector("a-scene").setAttribute("zoom-controls", "");
+        // Request permission to access the camera
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then((stream) => {
+            // Connect the stream to the video element
+            videoElement.srcObject = stream;
+
+            // Once the video starts playing, connect it to the skybox
+            videoElement.onplaying = startVideo;
+          })
+          .catch((err) => {
+            console.error("Error accessing the camera:", err);
+          });
       </script>
     </a-scene>
   </body>
