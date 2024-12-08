@@ -5,9 +5,6 @@
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script
       type="text/javascript"
-      src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/three.js/build/ar-threex-location-only.js"></script>
-    <script
-      type="text/javascript"
       src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js"></script>
   </head>
   <body>
@@ -15,12 +12,19 @@
       vr-mode-ui="enabled: false"
       arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false"
       renderer="antialias: true; alpha: true">
-      <a-camera gps-new-camera="gpsMinDistance: 5"></a-camera>
+      <a-assets>
+        <a-asset-item
+          id="burger"
+          src="./../../../assets/models/burger/scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <!-- Model 3D Burger -->
       <a-entity
-        material="color: red"
-        geometry="primitive: box"
-        gps-new-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>"
-        scale="10 10 10"></a-entity>
+        gltf-model="#burger"
+        position="0 1.5 -3"
+        scale="0.05 0.05 0.05"></a-entity>
+
+      <a-camera gps-new-camera="gpsMinDistance: 5"></a-camera>
     </a-scene>
   </body>
 </html>
