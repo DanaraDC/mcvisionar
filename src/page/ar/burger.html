@@ -2,10 +2,8 @@
 <html>
   <head>
     <title>AR.js A-Frame Location-based</title>
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-    <script
-      type="text/javascript"
-      src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js"></script>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
   </head>
   <body>
     <a-scene
@@ -18,29 +16,54 @@
           src="./../../../assets/models/burger/scene.gltf"></a-asset-item>
       </a-assets>
 
-      <!-- Model 3D Burger dengan interaktivitas -->
+      <!-- Model 3D Burger -->
       <a-entity
         id="burgerModel"
         gltf-model="#burger"
         position="0 1.5 -3"
-        scale="0.05 0.05 0.05"
-        class="clickable"
-        event-set__mouseenter="scale: 0.06 0.06 0.06"
-        event-set__mouseleave="scale: 0.05 0.05 0.05"
-        event-set__click="position: 0 2 -3; rotation: 0 45 0"></a-entity>
+        scale="0.05 0.05 0.05"></a-entity>
 
-      <a-camera></a-camera>
+      <!-- Kamera di atas model burger, menghadap ke bawah -->
+      <a-camera position="0 3 0" rotation="-90 0 0"></a-camera>
     </a-scene>
 
     <script>
-      // Menambahkan interaktivitas untuk mengubah posisi dan rotasi model saat di klik
-      document
-        .querySelector("#burgerModel")
-        .addEventListener("click", function () {
-          this.setAttribute("position", "0 2 -3"); // Mengubah posisi
-          this.setAttribute("rotation", "0 45 0"); // Mengubah rotasi
-          console.log("Burger model clicked!");
-        });
+      // Mendapatkan referensi ke model burger
+      const burgerModel = document.querySelector("#burgerModel");
+
+      // Mengatur zoom interaktif dengan mouse scroll atau pinch zoom
+      let scaleFactor = 0.05;
+
+      // Fungsi untuk menangani zoom menggunakan scroll mouse atau pinch zoom
+      function handleZoom(event) {
+        // Cegah scrolling halaman agar tidak terganggu
+        event.preventDefault();
+
+        // Tentukan nilai zoom berdasarkan scroll atau gesture touch
+        if (event.deltaY) {
+          scaleFactor += event.deltaY * -0.001; // Scroll wheel
+        } else if (event.touches && event.touches.length === 2) {
+          // Menggunakan pinch zoom pada perangkat sentuh
+          const touchDist = Math.hypot(
+            event.touches[0].pageX - event.touches[1].pageX,
+            event.touches[0].pageY - event.touches[1].pageY
+          );
+          scaleFactor = touchDist * 0.005;
+        }
+
+        // Batasi scale agar tidak terlalu besar atau kecil
+        scaleFactor = Math.min(Math.max(scaleFactor, 0.01), 0.2);
+
+        // Terapkan skala pada model burger
+        burgerModel.setAttribute(
+          "scale",
+          `${scaleFactor} ${scaleFactor} ${scaleFactor}`
+        );
+      }
+
+      // Menambahkan event listener untuk zoom dengan scroll mouse dan pinch zoom
+      window.addEventListener("wheel", handleZoom); // Zoom dengan scroll mouse
+      window.addEventListener("touchmove", handleZoom, { passive: false }); // Zoom dengan sentuhan
     </script>
   </body>
 </html>
