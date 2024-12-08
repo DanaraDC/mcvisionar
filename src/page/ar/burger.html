@@ -24,10 +24,7 @@
         scale="0.05 0.05 0.05"></a-entity>
 
       <!-- Kamera di atas model burger, menghadap ke bawah -->
-      <a-camera
-        position="0 3 0"
-        rotation="-90 0 0"
-        gps-new-camera="gpsMinDistance: 5"></a-camera>
+      <a-camera position="0 3 0" rotation="-90 0 0"></a-camera>
     </a-scene>
 
     <script>
@@ -75,7 +72,7 @@
       }
 
       // Event listener untuk zoom dengan scroll mouse
-      window.addEventListener("wheel", handleZoom);
+      window.addEventListener("wheel", handleZoom, { passive: false });
 
       // Event listener untuk zoom dengan pinch gesture pada perangkat sentuh
       window.addEventListener(
@@ -91,6 +88,11 @@
       // Reset jarak sentuhan saat sentuhan berakhir
       window.addEventListener("touchend", () => {
         initialTouchDistance = 0;
+      });
+
+      // Event listener untuk menangani kesalahan dan memastikan interaksi konsisten
+      window.addEventListener("error", (event) => {
+        console.error("Error caught: ", event.message);
       });
     </script>
   </body>
