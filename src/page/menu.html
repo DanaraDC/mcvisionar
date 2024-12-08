@@ -15,17 +15,13 @@
         width: 100%;
         height: 100%;
       }
-      body {
-        background: linear-gradient(135deg, #ffe600, #ff5733);
-        background-attachment: fixed;
-        background-size: cover;
-      }
+
       .futuristic-border {
         border: 1px solid rgba(0, 0, 0, 0.1);
       }
     </style>
   </head>
-  <body class="bg-mcd-yellow/10">
+  <body class="bg-red-700">
     <div class="relative">
       <!-- Navbar -->
       <header
@@ -124,93 +120,44 @@
       </div>
     </div>
 
-    <main class="flex-grow container mx-auto px-4 py-8">
-      <section class="mb-12 text-center">
-        <h2
-          class="text-4xl font-extrabold mb-4 text-white border-b-4 border-white pb-2 inline-block text-shadow">
-          Welcome to McVisionAR
-        </h2>
-        <p class="text-xl text-white max-w-2xl mx-auto mt-4 text-shadow">
-          Experience McDonald's like never before with our cutting-edge
-          augmented reality technology. Bringing your favorite menu items to
-          life, right before your eyes!
-        </p>
-      </section>
-      <section class="mb-12">
-        <h3
-          class="text-3xl font-extrabold mb-8 text-center text-white border-white pb-2 text-shadow">
-          3D Model Credits
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div
-            class="bg-white bg-opacity-90 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 futuristic-border">
-            <div class="p-6">
-              <div class="flex items-center mb-4">
-                <img
-                  src="https://via.placeholder.com/100"
-                  alt="Big Mac preview"
-                  class="rounded-md mr-4 w-24 h-24 object-cover" />
-                <div>
-                  <h4 class="font-bold text-xl text-mcd-red">Big Mac</h4>
-                  <p class="text-mcd-black/80">by AnthonyMakesStuff</p>
-                </div>
+    <div class="container mx-auto p-6">
+      <h1 class="text-3xl font-bold text-center text-white mb-6">
+        Menu dan Harga
+      </h1>
+
+      <!-- Grid untuk menampilkan menu -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div
+          class="max-w-sm rounded overflow-hidden shadow-lg border-2 border-red-500">
+          <img
+            class="w-full"
+            src="./../../assets/images/menu/amirali-mirhashemian-sc5sTPMrVfk-unsplash.jpg"
+            alt="McChicken" />
+          <div class="px-6 py-4 bg-gradient-to-b from-yellow-100 to-white">
+            <!-- Nama menu -->
+            <div class="mb-2">
+              <div class="font-extrabold text-2xl text-red-500 mb-1">
+                McChicken
               </div>
-              <a
-                href="https://sketchfab.com/AnthonyMakesStuff"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-4 inline-block px-4 py-2 bg-mcd-red text-black rounded-full hover:bg-mcd-yellow hover:text-mcd-black transition-colors duration-200">
-                View Profile
-              </a>
+              <p class="text-gray-800 text-2xl font-semibold">Rp 60.000</p>
             </div>
-          </div>
-          <div
-            class="bg-white bg-opacity-90 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 futuristic-border">
-            <div class="p-6">
-              <div class="flex items-center mb-4">
-                <img
-                  src="https://via.placeholder.com/100"
-                  alt="French Fries preview"
-                  class="rounded-md mr-4 w-24 h-24 object-cover" />
-                <div>
-                  <h4 class="font-bold text-xl text-mcd-red">French Fries</h4>
-                  <p class="text-mcd-black/80">by RenderRookie</p>
-                </div>
-              </div>
+            <!-- Tombol aksi -->
+            <div class="flex justify-end gap-3 mt-4">
+              <button
+                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                Detail
+              </button>
               <a
-                href="https://sketchfab.com/RenderRookie"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-4 inline-block px-4 py-2 bg-mcd-red text-white rounded-full hover:bg-mcd-yellow hover:text-mcd-black transition-colors duration-200">
-                View Profile
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white bg-opacity-90 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 futuristic-border">
-            <div class="p-6">
-              <div class="flex items-center mb-4">
-                <img
-                  src="https://via.placeholder.com/100"
-                  alt="McFlurry preview"
-                  class="rounded-md mr-4 w-24 h-24 object-cover" />
-                <div>
-                  <h4 class="font-bold text-xl text-mcd-red">McFlurry</h4>
-                  <p class="text-mcd-black/80">by 3DModelMaster</p>
-                </div>
-              </div>
-              <a
-                href="https://sketchfab.com/3DModelMaster"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-4 inline-block px-4 py-2 bg-mcd-red text-white rounded-full hover:bg-mcd-yellow hover:text-mcd-black transition-colors duration-200">
-                View Profile
+                href="./ar/burger.html"
+                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                AR View
               </a>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
 
     <script src="../js/toggleNavbar.js"></script>
     <script>

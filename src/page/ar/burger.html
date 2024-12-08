@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <style>
+      .a-loader-title {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <a-scene loading-screen="dotsColor: red; backgroundColor: black">
+      <a-assets>
+        <a-asset-item
+          id="burger"
+          src="./../../../assets/models/burger/scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <!-- Model 3D -->
+      <a-entity gltf-model="#burger" scale="0.01 0.01 0.01" position="0 1 -2">
+      </a-entity>
+
+      <!-- Camera -->
+      <a-entity camera position="0 1.6 0" wasd-controls-enabled="false">
+      </a-entity>
+
+      <!-- Zoom Logic -->
+      <script>
+        AFRAME.registerComponent("zoom-controls", {
+          init: function () {
+            const el = this.el;
+            const model = document.querySelector("[gltf-model]");
+            const camera = document.querySelector("[camera]");
+            let scale = 0.05;
+
+            window.addEventListener("wheel", (e) => {
+              // Adjust scale based on scroll direction
+              if (e.deltaY < 0 && scale < 1) {
+                scale += 0.01; // Zoom in
+              } else if (e.deltaY > 0 && scale > 0.01) {
+                scale -= 0.01; // Zoom out
+              }
+              model.setAttribute("scale", `${scale} ${scale} ${scale}`);
+            });
+          },
+        });
+
+        // Add zoom-controls to the scene
+        document.querySelector("a-scene").setAttribute("zoom-controls", "");
+      </script>
+    </a-scene>
+  </body>
+</html>
