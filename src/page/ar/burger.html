@@ -8,52 +8,44 @@
         <a-asset-item
           id="burger"
           src="./../../../assets/models/burger/scene.gltf"></a-asset-item>
-      </a-assets>
-      <a-assets>
-        <!-- Hidden video element to capture the camera feed -->
         <video
           id="videoFeed"
           autoplay
           playsinline
+          muted
+          crossorigin="anonymous"
           style="display: none"></video>
       </a-assets>
 
-      <!-- Skybox to show the camera feed fullscreen -->
       <a-sky id="video-sky" material="shader: flat; src: #videoFeed"></a-sky>
 
-      <!-- 3D model -->
-      <a-entity gltf-model="#burger" position="0 1.5 -3" scale="0.05 0.05 0.05">
-      </a-entity>
+      <a-entity
+        gltf-model="#burger"
+        position="0 1.5 -3"
+        scale="0.05 0.05 0.05"></a-entity>
 
-      <!-- Camera Rig -->
       <a-entity id="rig" position="0 1.6 0">
         <a-camera id="camera" look-controls wasd-controls></a-camera>
       </a-entity>
 
       <script>
-        // Access the device camera
         const videoElement = document.querySelector("#videoFeed");
         const videoSky = document.querySelector("#video-sky");
 
-        // Ensure the video is playing before it's used in the skybox
         function startVideo() {
-          // Check if the video element is playing and ready
           if (videoElement.readyState >= 3) {
             videoSky.setAttribute("material", "src", "#videoFeed");
+            console.log("Video feed started.");
           } else {
             console.log("Waiting for video feed to start...");
-            setTimeout(startVideo, 100); // Retry until video is ready
+            setTimeout(startVideo, 100);
           }
         }
 
-        // Request permission to access the camera
         navigator.mediaDevices
           .getUserMedia({ video: true })
           .then((stream) => {
-            // Connect the stream to the video element
             videoElement.srcObject = stream;
-
-            // Once the video starts playing, connect it to the skybox
             videoElement.onplaying = startVideo;
           })
           .catch((err) => {
