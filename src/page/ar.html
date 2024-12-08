@@ -1,8 +1,17 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR Example</title>
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
   </head>
   <body>
     <a-scene
@@ -16,35 +25,29 @@
         <a-asset-item
           id="kentang_goreng_model"
           src="../../assets/models/kentang_goreng/scene.gltf"></a-asset-item>
-
         <a-asset-item
           id="burger_model"
           src="../../assets/models/burger/scene.gltf"></a-asset-item>
-
         <a-asset-item
           id="fried_chicken_model"
           src="../../assets/models/fried_chicken_wing/scene.gltf"></a-asset-item>
-
         <a-asset-item
           id="chicken_nugget_model"
           src="../../assets/models/chicken_nugget/scene.gltf"></a-asset-item>
-
         <a-asset-item
           id="coca_cola_bottle_model"
           src="../../assets/models/coca_cola_bottle/scene.gltf"></a-asset-item>
-
         <a-asset-item
           id="unknown_mcd_model1"
           src="../../assets/models/mcd_unknown/1/scene.gltf"></a-asset-item>
-
         <a-asset-item
           id="unknown_mcd_model2"
           src="../../assets/models/mcd_unknown/2/scene.gltf"></a-asset-item>
-
         <a-asset-item
           id="unknown_mcd_model3"
           src="../../assets/models/mcd_unknown/3/scene.gltf"></a-asset-item>
       </a-assets>
+
       <a-entity mindar-image-target="targetIndex: 0">
         <!-- Plane sebagai latar belakang -->
         <a-plane
@@ -52,8 +55,7 @@
           position="0 0 0"
           height="1.6"
           width="0.9"
-          rotation="0 0 0">
-        </a-plane>
+          rotation="0 0 0"></a-plane>
 
         <!-- Model pertama -->
         <a-gltf-model
@@ -61,8 +63,7 @@
           rotation="0 0 0"
           position="-0.3 0.2 0.1"
           scale="0.005 0.005 0.005"
-          animation="property: position; to: -0.3 0.3
-        0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+          animation="property: position; to: -0.3 0.3 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
         </a-gltf-model>
 
         <!-- Model kedua -->
@@ -119,9 +120,9 @@
       <a-gltf-model
         gltf-model="#unknown_mcd_model2"
         scale="0.045 0.045 0.045"
-        position="-0.45 -0.6 0.1"
+        position="0 0.4 0.1"
         rotation="0 0 0"
-        animation="property: position; to: 0 -0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
+        animation="property: position; to: 0 0.5 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
         event-set__loaded="_event: model-loaded; log: Model Loaded!"
         wireframe="true"></a-gltf-model>
 
@@ -129,9 +130,9 @@
       <a-gltf-model
         gltf-model="#unknown_mcd_model3"
         scale="0.045 0.045 0.045"
-        position="0.45 -0.6 0.1"
+        position="0 0.6 0.1"
         rotation="0 0 0"
-        animation="property: position; to: 0 -0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
+        animation="property: position; to: 0 0.7 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
         wireframe="true"></a-gltf-model>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
