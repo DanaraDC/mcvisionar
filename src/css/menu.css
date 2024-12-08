@@ -1,0 +1,15 @@
+.ar-glow {
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+}
+.futuristic-border {
+  border: 2px solid rgba(255, 204, 0, 0.3);
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.2);
+}
+.grid-bg {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 204, 0, 0.1) 1px,
+    transparent 0
+  );
+  background-size: 40px 40px;
+}

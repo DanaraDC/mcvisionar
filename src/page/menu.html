@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>McVisionAR</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide-icons"></script>
+    <link rel="stylesheet" href="./../css/output.css" />
+    <link rel="stylesheet" href="./../css/modal.css" />
+    <link rel="stylesheet" href="./../css/menu.css" />
+
+    <style>
+      .webgl {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        background: linear-gradient(135deg, #ffe600, #ff5733);
+        background-attachment: fixed;
+        background-size: cover;
+      }
+      .futuristic-border {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-mcd-yellow/10">
+    <div class="relative">
+      <!-- Navbar -->
+      <header
+        class="p-4 flex justify-between items-center bg-white text-black shadow-md">
+        <a href="/" class="flex items-center space-x-2">
+          <img
+            src="../../assets/images/logo/logo.png"
+            alt="McDonald's Logo"
+            class="h-10 w-auto" />
+        </a>
+        <div class="flex items-center justify-center gap-4">
+          <button
+            class="px-4 py-2 bg-slate-100 rounded-full hover:bg-slate-200 transition-colors duration-200 flex items-center space-x-1">
+            <img src="./../../assets/images/flag/usa.png" alt="" class="h-4" />
+            <span>EN/US</span>
+          </button>
+          <!-- Hamburger Menu -->
+          <button
+            class="p-2 rounded-md hover:bg-slate-100 transition-colors duration-200"
+            id="toggleDrawerButton"
+            aria-label="Toggle menu">
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Drawer Backdrop -->
+      <div
+        id="backdrop"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 hidden"></div>
+
+      <!-- Drawer -->
+      <div
+        id="drawer"
+        class="fixed top-0 right-0 h-full bg-white text-gray-800 w-80 shadow-2xl transform transition-transform duration-300 ease-in-out z-50 translate-x-full">
+        <div
+          class="flex justify-between items-center p-6 bg-red-600 text-white">
+          <img
+            src="../../assets/images/logo/logo.png"
+            alt="McDonald's Logo"
+            class="h-10 w-auto" />
+          <button
+            class="text-white hover:text-gray-200 transition-colors duration-200"
+            id="closeDrawerButton"
+            aria-label="Close menu">
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <nav class="mt-6 flex flex-col gap-2 px-6">
+          <a
+            href="landing.html"
+            class="py-3 px-4 text-lg bg-yellow-200 hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >Home</a
+          >
+          <a
+            href="menu.html"
+            class="py-3 px-4 text-lg hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >Menu</a
+          >
+          <a
+            href="team.html"
+            class="py-3 px-4 text-lg hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >Our Team</a
+          >
+          <a
+            href="credit.html"
+            class="py-3 px-4 text-lg hover:bg-yellow-400 rounded-md transition-colors duration-200"
+            >Credit</a
+          >
+        </nav>
+        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gray-100">
+          <p class="text-sm text-gray-600 text-center">
+            © <span id="year"></span> McDonald's. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <section class="mb-12 text-center">
+        <h2
+          class="text-4xl font-extrabold mb-4 text-white border-b-4 border-white pb-2 inline-block text-shadow">
+          Welcome to McVisionAR
+        </h2>
+        <p class="text-xl text-white max-w-2xl mx-auto mt-4 text-shadow">
+          Experience McDonald's like never before with our cutting-edge
+          augmented reality technology. Bringing your favorite menu items to
+          life, right before your eyes!
+        </p>
+      </section>
+      <section class="mb-12">
+        <h3
+          class="text-3xl font-extrabold mb-8 text-center text-white border-white pb-2 text-shadow">
+          3D Model Credits
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-white bg-opacity-90 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 futuristic-border">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <img
+                  src="https://via.placeholder.com/100"
+                  alt="Big Mac preview"
+                  class="rounded-md mr-4 w-24 h-24 object-cover" />
+                <div>
+                  <h4 class="font-bold text-xl text-mcd-red">Big Mac</h4>
+                  <p class="text-mcd-black/80">by AnthonyMakesStuff</p>
+                </div>
+              </div>
+              <a
+                href="https://sketchfab.com/AnthonyMakesStuff"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-block px-4 py-2 bg-mcd-red text-black rounded-full hover:bg-mcd-yellow hover:text-mcd-black transition-colors duration-200">
+                View Profile
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white bg-opacity-90 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 futuristic-border">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <img
+                  src="https://via.placeholder.com/100"
+                  alt="French Fries preview"
+                  class="rounded-md mr-4 w-24 h-24 object-cover" />
+                <div>
+                  <h4 class="font-bold text-xl text-mcd-red">French Fries</h4>
+                  <p class="text-mcd-black/80">by RenderRookie</p>
+                </div>
+              </div>
+              <a
+                href="https://sketchfab.com/RenderRookie"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-block px-4 py-2 bg-mcd-red text-white rounded-full hover:bg-mcd-yellow hover:text-mcd-black transition-colors duration-200">
+                View Profile
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white bg-opacity-90 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 futuristic-border">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <img
+                  src="https://via.placeholder.com/100"
+                  alt="McFlurry preview"
+                  class="rounded-md mr-4 w-24 h-24 object-cover" />
+                <div>
+                  <h4 class="font-bold text-xl text-mcd-red">McFlurry</h4>
+                  <p class="text-mcd-black/80">by 3DModelMaster</p>
+                </div>
+              </div>
+              <a
+                href="https://sketchfab.com/3DModelMaster"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-block px-4 py-2 bg-mcd-red text-white rounded-full hover:bg-mcd-yellow hover:text-mcd-black transition-colors duration-200">
+                View Profile
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/toggleNavbar.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

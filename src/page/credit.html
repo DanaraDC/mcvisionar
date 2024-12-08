@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/lucide-icons"></script>
     <link rel="stylesheet" href="./../css/output.css" />
     <link rel="stylesheet" href="./../css/modal.css" />
+    <link rel="stylesheet" href="./../css/menu.css" />
 
     <style>
       .webgl {
@@ -14,21 +15,17 @@
         width: 100%;
         height: 100%;
       }
-      .bg-mcd-red {
-        background-color: #da291c;
+      body {
+        background: linear-gradient(135deg, #ffe600, #ff5733);
+        background-attachment: fixed;
+        background-size: cover;
       }
-      .bg-mcd-yellow {
-        background-color: #ffc72c;
-      }
-      .text-mcd-red {
-        color: #da291c;
-      }
-      .hover\:bg-mcd-yellow:hover {
-        background-color: #ffc72c;
+      .futuristic-border {
+        border: 1px solid rgba(0, 0, 0, 0.1);
       }
     </style>
   </head>
-  <body>
+  <body class="bg-mcd-yellow/10">
     <div class="relative">
       <!-- Navbar -->
       <header
@@ -127,117 +124,318 @@
       </div>
     </div>
 
-    <!-- Credit Section -->
-    <main class="container mx-auto px-4 py-12">
-      <h1 class="text-4xl font-bold text-center mb-12 text-mcd-red">Credits</h1>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <section class="mb-8 bg-beige p-6 rounded-lg">
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <section class="mb-12 text-center">
+        <h2
+          class="text-4xl font-extrabold mb-4 text-white border-white pb-2 inline-block text-shadow">
+          Welcome to McVisionAR
+        </h2>
+        <p class="text-xl text-white max-w-2xl mx-auto mt-4 text-shadow">
+          Experience McDonald's like never before with our cutting-edge
+          augmented reality technology. Bringing your favorite menu items to
+          life, right before your eyes!
+        </p>
+      </section>
+      <section class="mb-12">
+        <h3
+          class="text-3xl font-extrabold mb-8 text-center text-white border-white pb-2 text-shadow">
+          3D Model Credits
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Burger -->
           <div
-            class="bg-yellow-400 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 border-t-4 border-cherry-red">
-            <h3 class="text-xl font-bold mb-3 flex items-center">
-              <img
-                src="../../assets/svg/chicken/index.svg"
-                alt="Chicken"
-                class="w-6 h-6 mr-2" />
-              Fried Chicken Wing
-            </h3>
-            <p class="mb-2">
-              <strong>Source:</strong>
+            class="bg-white bg-opacity-90 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 futuristic-border">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <img
+                  src="./../../assets/images/model_preview/Realistic_Burger.png"
+                  alt="Realistic Burger preview"
+                  class="rounded-md mr-4 w-24 h-24 object-cover" />
+                <div>
+                  <h4 class="font-bold text-xl text-mcd-red">
+                    Realistic Burger
+                  </h4>
+                  <p class="text-mcd-black/80">by neshallads</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-mcd-black">
+                This work is based on
+                <a
+                  href="https://sketchfab.com/3d-models/realistic-burger-1f3e42de8f7a4b308067ad92147e269a"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >Realistic Burger</a
+                >
+                by
+                <a
+                  href="https://sketchfab.com/neshallads"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >neshallads</a
+                >
+                licensed under
+                <a
+                  href="http://creativecommons.org/licenses/by/4.0/"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >CC-BY-4.0</a
+                >.
+              </p>
               <a
-                href="https://sketchfab.com/3d-models/fried-chicken-wing-0651fa619e324cfcab1d97816d13bcbd"
-                class="text-blue-700 hover:underline"
+                href="https://sketchfab.com/3d-models/realistic-burger-1f3e42de8f7a4b308067ad92147e269a"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Sketchfab</a
-              >
-            </p>
-            <p class="mb-2">
-              <strong>Author:</strong>
+                class="mt-4 inline-block w-full text-center px-4 py-3 bg-gradient-to-r from-red-500 to-yellow-500 text-white font-semibold rounded-lg hover:from-mcd-yellow hover:to-mcd-red transition-colors duration-300">
+                View Model
+              </a>
+            </div>
+          </div>
+
+          <!-- Fried Chicken -->
+          <div
+            class="bg-white bg-opacity-90 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 futuristic-border">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <img
+                  src="./../../assets/images/model_preview/Fried_Chicken_Wing.png"
+                  alt="Fried Chicken Wing preview"
+                  class="rounded-md mr-4 w-24 h-24 object-cover" />
+                <div>
+                  <h4 class="font-bold text-xl text-mcd-red">
+                    Fried Chicken Wing
+                  </h4>
+                  <p class="text-mcd-black/80">by CzernO</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-mcd-black">
+                This work is based on
+                <a
+                  href="https://sketchfab.com/3d-models/fried-chicken-wing-0651fa619e324cfcab1d97816d13bcbd"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >Fried Chicken Wing</a
+                >
+                by
+                <a
+                  href="https://sketchfab.com/czernobog"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >CzernO</a
+                >
+                licensed under
+                <a
+                  href="http://creativecommons.org/licenses/by/4.0/"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >CC-BY-4.0</a
+                >.
+              </p>
               <a
-                href="https://sketchfab.com/czernobog"
-                class="text-blue-700 hover:underline"
+                href="https://sketchfab.com/3d-models/fried-chicken-wing-0651fa619e324cfcab1d97816d13bcbd"
                 target="_blank"
                 rel="noopener noreferrer"
-                >CzernO</a
-              >
-            </p>
-            <p class="mb-3"><strong>License:</strong> CC-BY-4.0</p>
-            <p class="text-sm text-gray-700 bg-yellow-100 p-3 rounded">
-              This work is based on "Fried chicken wing" (<a
-                href="https://sketchfab.com/3d-models/fried-chicken-wing-0651fa619e324cfcab1d97816d13bcbd"
-                class="text-blue-700 hover:underline"
-                >link</a
-              >) by CzernO (<a
-                href="https://sketchfab.com/czernobog"
-                class="text-blue-700 hover:underline"
-                >author</a
-              >) licensed under
-              <a
-                href="http://creativecommons.org/licenses/by/4.0/"
-                class="text-blue-700 hover:underline"
-                >CC-BY-4.0</a
-              >.
-            </p>
+                class="mt-4 inline-block w-full text-center px-4 py-3 bg-gradient-to-r from-red-500 to-yellow-500 text-white font-semibold rounded-lg hover:from-mcd-yellow hover:to-mcd-red transition-colors duration-300">
+                View Model
+              </a>
+            </div>
           </div>
-        </section>
 
-        <section class="mb-8">
-          <h2 class="text-2xl font-semibold mb-4 text-mcd-red">Other Assets</h2>
+          <!-- Papas Mc -->
           <div
-            class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
-            <ul class="list-disc list-inside space-y-2">
-              <li>
-                Icons provided by
+            class="bg-white bg-opacity-90 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 futuristic-border">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <img
+                  src="./../../assets/images/model_preview/Papas_Mc.png"
+                  alt="Papas Mc preview"
+                  class="rounded-md mr-4 w-24 h-24 object-cover" />
+                <div>
+                  <h4 class="font-bold text-xl text-mcd-red">Papas Mc</h4>
+                  <p class="text-mcd-black/80">by Khamila</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-mcd-black">
+                This work is based on
                 <a
-                  href="https://lucide.dev/"
-                  class="text-blue-600 hover:underline"
+                  href="https://sketchfab.com/3d-models/papas-mc-0f084c0bb60c4c9bab03aafaccd58980"
+                  class="text-mcd-red underline"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  >Lucide Icons</a
+                  >Papas Mc</a
                 >
-              </li>
-              <li>
-                Styling powered by
+                by
                 <a
-                  href="https://tailwindcss.com/"
-                  class="text-blue-600 hover:underline"
+                  href="https://sketchfab.com/Khamila"
+                  class="text-mcd-red underline"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  >Tailwind CSS</a
+                  >Khamila</a
                 >
-              </li>
-              <li>
-                Fonts: <span class="font-semibold">Arial</span> (primary),
-                <span class="font-semibold">Helvetica</span> (secondary)
-              </li>
-              <li>
-                Color Palette:
-                <ul class="ml-6 mt-2 space-y-1">
-                  <li>
-                    <span class="inline-block w-4 h-4 bg-mcd-red mr-2"></span
-                    >McDonald's Red (#DA291C)
-                  </li>
-                  <li>
-                    <span class="inline-block w-4 h-4 bg-mcd-yellow mr-2"></span
-                    >McDonald's Yellow (#FFC72C)
-                  </li>
-                </ul>
-              </li>
-            </ul>
+                licensed under
+                <a
+                  href="http://creativecommons.org/licenses/by/4.0/"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >CC-BY-4.0</a
+                >.
+              </p>
+              <a
+                href="https://sketchfab.com/3d-models/papas-mc-0f084c0bb60c4c9bab03aafaccd58980"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-block w-full text-center px-4 py-3 bg-gradient-to-r from-red-500 to-yellow-500 text-white font-semibold rounded-lg hover:from-mcd-yellow hover:to-mcd-red transition-colors duration-300">
+                View Model
+              </a>
+            </div>
           </div>
-        </section>
-      </div>
+
+          <!-- Chicken Nugget -->
+          <div
+            class="bg-white bg-opacity-90 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 futuristic-border">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <img
+                  src="./../../assets/images/model_preview/Chicken_Nugget.png"
+                  alt="Chicken Nugget preview"
+                  class="rounded-md mr-4 w-24 h-24 object-cover" />
+                <div>
+                  <h4 class="font-bold text-xl text-mcd-red">Chicken Nugget</h4>
+                  <p class="text-mcd-black/80">by Laser Design</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-mcd-black">
+                This work is based on
+                <a
+                  href="https://sketchfab.com/3d-models/chicken-nugget-511db88f24e04eb1be8b0c0c080e1e5e"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >Chicken Nugget</a
+                >
+                by
+                <a
+                  href="https://sketchfab.com/Laserdesign"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >Laser Design</a
+                >
+                licensed under
+                <a
+                  href="http://creativecommons.org/licenses/by/4.0/"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >CC-BY-4.0</a
+                >.
+              </p>
+              <a
+                href="https://sketchfab.com/3d-models/chicken-nugget-511db88f24e04eb1be8b0c0c080e1e5e"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-block w-full text-center px-4 py-3 bg-gradient-to-r from-red-500 to-yellow-500 text-white font-semibold rounded-lg hover:from-mcd-yellow hover:to-mcd-red transition-colors duration-300">
+                View Model
+              </a>
+            </div>
+          </div>
+
+          <!-- Coca Cola Bottle -->
+          <div
+            class="bg-white bg-opacity-90 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 futuristic-border">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <img
+                  src="./../../assets/images/model_preview/Coca_Cola_Bottle.png"
+                  alt="Coca Cola Bottle preview"
+                  class="rounded-md mr-4 w-24 h-24 object-cover" />
+                <div>
+                  <h4 class="font-bold text-xl text-mcd-red">
+                    Coca Cola Bottle
+                  </h4>
+                  <p class="text-mcd-black/80">by MemoRorschach</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-mcd-black">
+                This work is based on
+                <a
+                  href="https://sketchfab.com/3d-models/coca-cola-bottle-34075fedb0ef40d9a172231134849914"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >Coca Cola Bottle</a
+                >
+                by
+                <a
+                  href="https://sketchfab.com/memororschach"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >MemoRorschach</a
+                >
+                licensed under
+                <a
+                  href="http://creativecommons.org/licenses/by/4.0/"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >CC-BY-4.0</a
+                >.
+              </p>
+              <a
+                href="https://sketchfab.com/3d-models/coca-cola-bottle-34075fedb0ef40d9a172231134849914"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-block w-full text-center px-4 py-3 bg-gradient-to-r from-red-500 to-yellow-500 text-white font-semibold rounded-lg hover:from-mcd-yellow hover:to-mcd-red transition-colors duration-300">
+                View Model
+              </a>
+            </div>
+          </div>
+
+          <!-- Cajita Mc -->
+          <div
+            class="bg-white bg-opacity-90 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 futuristic-border">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <img
+                  src="./../../assets/images/model_preview/Cajita_Mc.png"
+                  alt="Cajita Mc preview"
+                  class="rounded-md mr-4 w-24 h-24 object-cover" />
+                <div>
+                  <h4 class="font-bold text-xl text-mcd-red">Cajita Mc</h4>
+                  <p class="text-mcd-black/80">by Khamila</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-mcd-black">
+                This work is based on
+                <a
+                  href="https://sketchfab.com/3d-models/cajita-mc-b876074ea33c4e8ea4679890ef0c0654"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >Cajita Mc</a
+                >
+                by
+                <a
+                  href="https://sketchfab.com/Khamila"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >Khamila</a
+                >
+                licensed under
+                <a
+                  href="http://creativecommons.org/licenses/by/4.0/"
+                  class="text-mcd-red underline"
+                  target="_blank"
+                  >CC-BY-4.0</a
+                >.
+              </p>
+              <a
+                href="https://sketchfab.com/3d-models/cajita-mc-b876074ea33c4e8ea4679890ef0c0654"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-block w-full text-center px-4 py-3 bg-gradient-to-r from-red-500 to-yellow-500 text-white font-semibold rounded-lg hover:from-mcd-yellow hover:to-mcd-red transition-colors duration-300">
+                View Model
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="../js/toggleNavbar.js"></script>
     <script>
-      // Fungsi untuk menampilkan/menyembunyikan modal
-      function toggleModal() {
-        const modal = document.getElementById("menuModal");
-        modal.classList.toggle("hidden");
-      }
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-    <script src="./../js/modalShow.js"></script>
   </body>
 </html>

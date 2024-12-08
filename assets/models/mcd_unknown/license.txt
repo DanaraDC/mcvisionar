@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cajita Mc
+* source:	https://sketchfab.com/3d-models/cajita-mc-b876074ea33c4e8ea4679890ef0c0654
+* author:	Khamila (https://sketchfab.com/Khamila)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cajita Mc" (https://sketchfab.com/3d-models/cajita-mc-b876074ea33c4e8ea4679890ef0c0654) by Khamila (https://sketchfab.com/Khamila) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
