@@ -12,14 +12,14 @@
       renderer="antialias: true; alpha: true">
       <a-assets>
         <a-asset-item
-          id="kentang"
-          src="./../../../assets/models/kentang_goreng/scene.gltf"></a-asset-item>
+          id="cocacola"
+          src="./../../../assets/models/coca_cola_bottle/scene.gltf"></a-asset-item>
       </a-assets>
 
       <!-- Model 3D Burger -->
       <a-entity
-        id="kentangModel"
-        gltf-model="#kentang"
+        id="cocacolaModel"
+        gltf-model="#cocacola"
         position="0 1.5 -3"
         scale="0.05 0.05 0.05"></a-entity>
 
@@ -33,7 +33,7 @@
 
       <!-- Teks di atas burger -->
       <a-text
-        value="Place your french fries"
+        value="Place your Coca Cola"
         position="0 2 -3"
         align="center"
         color="white"
@@ -45,7 +45,7 @@
 
     <script>
       // Mendapatkan referensi ke model burger
-      const burgerModel = document.querySelector("#kentangModel");
+      const burgerModel = document.querySelector("#cocacolaModel");
 
       // Variabel untuk menyimpan skala model
       let scaleFactor = 0.05;
