@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AR.js A-Frame Location-based</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body>
+    <a-scene
+      vr-mode-ui="enabled: false"
+      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false"
+      renderer="antialias: true; alpha: true">
+      <a-assets>
+        <a-asset-item
+          id="burger"
+          src="./../../../assets/models/chicken_nugget/scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <!-- Model 3D Burger -->
+      <a-entity
+        id="burgerModel"
+        gltf-model="#burger"
+        position="0 1.5 -3"
+        scale="0.05 0.05 0.05"></a-entity>
+
+      <!-- Ring di bawah burger dengan animasi -->
+      <a-ring
+        position="0 1 -3"
+        radius-inner="0.3"
+        radius-outer="0.4"
+        color="gold"
+        animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; dur: 1000; loop: true"></a-ring>
+
+      <!-- Teks di atas burger -->
+      <a-text
+        value="Place your Nugget"
+        position="0 2 -3"
+        align="center"
+        color="white"
+        font="https://cdn.aframe.io/fonts/mozillavr.fnt"></a-text>
+
+      <!-- Kamera di atas model burger, menghadap ke bawah -->
+      <a-camera position="0 3 0" rotation="-90 0 0"></a-camera>
+    </a-scene>
+
+    <script>
+      // Mendapatkan referensi ke model burger
+      const burgerModel = document.querySelector("#burgerModel");
+
+      // Variabel untuk menyimpan skala model
+      let scaleFactor = 0.05;
+      let initialTouchDistance = 0;
+
+      // Fungsi untuk menangani zoom menggunakan scroll mouse atau pinch zoom
+      function handleZoom(event) {
+        // Cegah scrolling halaman agar tidak terganggu
+        event.preventDefault();
+
+        // Zoom menggunakan scroll wheel (mouse)
+        if (event.deltaY) {
+          scaleFactor += event.deltaY * -0.001; // Scroll wheel
+        }
+
+        // Zoom menggunakan pinch zoom pada perangkat sentuh
+        else if (event.touches && event.touches.length === 2) {
+          const touchDist = Math.hypot(
+            event.touches[0].pageX - event.touches[1].pageX,
+            event.touches[0].pageY - event.touches[1].pageY
+          );
+
+          if (initialTouchDistance === 0) {
+            initialTouchDistance = touchDist;
+          }
+
+          const scaleDelta = (touchDist - initialTouchDistance) * 0.005;
+          scaleFactor += scaleDelta;
+          initialTouchDistance = touchDist; // Update jarak sentuhan awal untuk perhitungan selanjutnya
+        }
+
+        // Batasi scale agar tidak terlalu besar atau kecil
+        scaleFactor = Math.min(Math.max(scaleFactor, 0.01), 0.2);
+
+        // Terapkan skala pada model burger
+        burgerModel.setAttribute(
+          "scale",
+          `${scaleFactor} ${scaleFactor} ${scaleFactor}`
+        );
+      }
+
+      // Event listener untuk zoom dengan scroll mouse
+      window.addEventListener("wheel", handleZoom, { passive: false });
+
+      // Event listener untuk zoom dengan pinch gesture pada perangkat sentuh
+      window.addEventListener(
+        "touchmove",
+        (event) => {
+          if (event.touches.length === 2) {
+            handleZoom(event);
+          }
+        },
+        { passive: false }
+      );
+
+      // Reset jarak sentuhan saat sentuhan berakhir
+      window.addEventListener("touchend", () => {
+        initialTouchDistance = 0;
+      });
+
+      // Event listener untuk menangani kesalahan dan memastikan interaksi konsisten
+      window.addEventListener("error", (event) => {
+        console.error("Error caught: ", event.message);
+      });
+    </script>
+  </body>
+</html>
